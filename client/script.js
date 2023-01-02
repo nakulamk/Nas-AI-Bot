@@ -1,6 +1,6 @@
 import bot from "./assets/bot.svg";
 import user from "./assets/user.svg";
-
+const text = require("text-to-speech-js");
 const form = document.querySelector("form");
 const chatContainer = document.querySelector("#chat_container");
 
@@ -70,6 +70,12 @@ const handleSubmit = async (e) => {
 
   // to clear the textarea input
   form.reset();
+  try {
+    text.TextToSpeech.talk("Hello Beautiful World!");
+    console.log(1);
+  } catch (err) {
+    console.log(err);
+  }
 
   // bot's chatstripe
   const uniqueId = generateUniqueId();
